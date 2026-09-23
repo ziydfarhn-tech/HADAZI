@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile - Ziyad Farhan</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f7fa;
+        color: #222;
+        line-height: 1.6;
+      }
+
+      /* Navbar */
+      nav {
+        height: 70px;
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 8%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .logo {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+        gap: 30px;
+      }
+
+      nav ul li a {
+        text-decoration: none;
+        color: #333;
+        font-size: 15px;
+        transition: 0.3s;
+      }
+
+      nav ul li a:hover {
+        color: #2563eb;
+      }
+
+      /* Hero */
+      .hero {
+        min-height: 90vh;
+        padding: 80px 8%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 50px;
+        background-color: #ffffff;
+      }
+
+      .hero-text {
+        max-width: 600px;
+      }
+
+      .greeting {
+        color: #2563eb;
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .hero h1 {
+        font-size: 56px;
+        margin-bottom: 5px;
+      }
+
+      .hero h2 {
+        font-size: 24px;
+        color: #555;
+        font-weight: normal;
+        margin-bottom: 20px;
+      }
+
+      .description {
+        color: #666;
+        margin-bottom: 30px;
+      }
+
+      .button {
+        display: inline-block;
+        padding: 12px 25px;
+        background-color: #2563eb;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: 0.3s;
+      }
+
+      .button:hover {
+        background-color: #1d4ed8;
+      }
+
+      /* Profile */
+      .profile {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .profile-circle {
+        width: 280px;
+        height: 280px;
+        border-radius: 50%;
+        background-color: #2563eb;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0 15px 40px rgba(37, 99, 235, 0.25);
+      }
+
+      .profile-circle span {
+        font-size: 70px;
+        font-weight: bold;
+        color: white;
+      }
+
+      /* Section */
+      .section {
+        padding: 80px 8%;
+      }
+
+      .section > h2 {
+        text-align: center;
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      /* About */
+      .about-content {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 50px;
+      }
+
+      .about-content p {
+        margin-bottom: 15px;
+        color: #555;
+      }
+
+      .info {
+        background-color: white;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .info p {
+        margin-bottom: 10px;
+      }
+
+      /* Skills */
+      .skills-section {
+        background-color: #ffffff;
+      }
+
+      .skills {
+        max-width: 1000px;
+        margin: auto;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+
+      .skill-card {
+        background-color: #f5f7fa;
+        padding: 25px;
+        border-radius: 12px;
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .skill-card h3 {
+        margin-bottom: 10px;
+        color: #2563eb;
+      }
+
+      .skill-card p {
+        font-size: 14px;
+        color: #666;
+      }
+
+      /* Contact */
+      .contact {
+        text-align: center;
+      }
+
+      .contact > p {
+        max-width: 600px;
+        margin: 0 auto 25px;
+        color: #666;
+      }
+
+      .contact-list {
+        background-color: white;
+        max-width: 500px;
+        margin: auto;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .contact-list p {
+        margin-bottom: 8px;
+      }
+
+      /* Footer */
+      footer {
+        text-align: center;
+        padding: 25px;
+        background-color: #111827;
+        color: white;
+        font-size: 14px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        nav {
+          padding: 0 5%;
+        }
+
+        nav ul {
+          gap: 15px;
+        }
+
+        .hero {
+          flex-direction: column-reverse;
+          text-align: center;
+          padding: 60px 5%;
+        }
+
+        .hero h1 {
+          font-size: 42px;
+        }
+
+        .profile-circle {
+          width: 200px;
+          height: 200px;
+        }
+
+        .profile-circle span {
+          font-size: 50px;
+        }
+
+        .about-content {
+          grid-template-columns: 1fr;
+        }
+
+        .skills {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (max-width: 500px) {
+        nav ul {
+          display: none;
+        }
+
+        .skills {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="logo">ziydfarhn-Profile</div>
+    </nav>
+
+    <!-- Home -->
+    <section id="home" class="hero">
+      <div class="hero-text">
+        <p class="greeting">Hello, I'm</p>
+        <h1>Ziyad Farhan</h1>
+        <h2>Information System Student</h2>
+
+        <p class="description">
+          Saya adalah mahasiswa Sistem Informasi yang tertarik dengan dunia
+          teknologi, pengembangan website, dan pengembangan software.
+        </p>
+
+        <a href="#about" class="button">Tentang Saya</a>
+      </div>
+
+      <div class="profile">
+        <div class="profile-circle">
+          <span>ZF</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section">
+      <h2>Tentang Saya</h2>
+
+      <div class="about-content">
+        <div>
+          <p>
+            Halo, saya Ziyad Farhan. Saya merupakan mahasiswa Program Studi
+            Sistem Informasi di Universitas Pembangunan Jaya.
+          </p>
+
+          <p>
+            Saya memiliki ketertarikan pada teknologi informasi, khususnya dalam
+            pengembangan website dan software. Saya juga senang mempelajari
+            hal-hal baru dan mengembangkan kemampuan melalui berbagai proyek.
+          </p>
+        </div>
+
+        <div class="info">
+          <p><strong>Nama:</strong> Ziyad Farhan</p>
+          <p><strong>Program Studi:</strong> Sistem Informasi</p>
+          <p><strong>Universitas:</strong> Universitas Pembangunan Jaya</p>
+          <p><strong>Domisili:</strong> South Tangerang</p>
+          <p><strong>Career Goal:</strong> Software Developer</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="section skills-section">
+      <h2>Skills</h2>
+
+      <div class="skills">
+        <div class="skill-card">
+          <h3>HTML</h3>
+          <p>Membuat struktur dan halaman website.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>CSS</h3>
+          <p>Membuat tampilan website menjadi lebih menarik.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>PHP</h3>
+          <p>Mempelajari pengembangan website berbasis server.</p>
+        </div>
+
+        <div class="skill-card">
+          <h3>Database</h3>
+          <p>Mengelola dan membuat database untuk aplikasi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="section contact">
+      <h2>Contact</h2>
+
+      <p>
+        Jika ingin terhubung atau berdiskusi mengenai project, silakan hubungi
+        saya melalui kontak berikut.
+      </p>
+
+      <div class="contact-list">
+        <p>Email: ziydfarhn@gmail.com</p>
+        <p>Instagram: @ziyadfarhn</p>
+        <p>GitHub: github.com/ziydfarhn</p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2026 Ziyad Farhan. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
